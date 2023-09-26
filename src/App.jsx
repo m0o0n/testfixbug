@@ -32,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     setLocalStorage(state);
-  }, [state.contact]);
+  }, [state]
 
   const handleDelete = id => {
     setState(prev => ({
