@@ -16,23 +16,23 @@ const App = () => {
     filteredContact: null,
   });
 
-  const getLocalStorage = () => {
-    return JSON.parse(localStorage.getItem('state'));
-  };
-  const setLocalStorage = state => {
-    localStorage.setItem('state', JSON.stringify(state));
-  };
+  // const getLocalStorage = () => {
+  //   return JSON.parse(localStorage.getItem('state'));
+  // };
+  // const setLocalStorage = state => {
+  //   localStorage.setItem('state', JSON.stringify(state));
+  // };
 
   useEffect(() => {
-    if (!getLocalStorage()) {
-      setLocalStorage(state);
+    if (!JSON.parse(localStorage.getItem('state'))) {
+      localStorage.setItem('state', JSON.stringify(state));
     }
-    setState(getLocalStorage());
+    setState(JSON.parse(localStorage.getItem('state')));
   }, []);
 
   useEffect(() => {
-    setLocalStorage(state);
-  }, [state, setState]);
+    localStorage.setItem('state', JSON.stringify(state));
+  }, [state]);
 
   const handleDelete = id => {
     setState(prev => ({
