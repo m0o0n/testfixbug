@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import FormCreateContact from './components/Forms/CreateContact/CreateContact';
 import FormFilterContact from './components/Forms/Filter/Filter';
 import css from './components/ContactList/ContactList.module.css';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
   const [state, setState] = useState({
@@ -32,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     setLocalStorage(state);
-  }, [state]);
+  }, [state, setState]);
 
   const handleDelete = id => {
     setState(prev => ({
